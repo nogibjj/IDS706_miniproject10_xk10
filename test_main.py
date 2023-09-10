@@ -10,7 +10,7 @@ import pandas as pd  # Import pandas
 def test_generate_summary_and_visualization():
     """Test the generate_summary_and_visualization function in main.py"""
     # Specify the paths
-    input_file_path = "bmi.csv"  # Update with the correct path to your dataset
+    input_file_path = "bmi.csv"  
     output_summary_report = "test_summary_report.md"
     histogram_image_path = "test_age_histogram.png"
 
