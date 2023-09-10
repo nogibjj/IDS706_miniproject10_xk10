@@ -1,56 +1,42 @@
 """
 Main code
 """
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Function to read the dataset from either CSV or Excel
-def read_dataset(dataset_file):
-    try:
-        if dataset_file.endswith(".csv"):
-            return pd.read_csv(dataset_file)
-        elif dataset_file.endswith(".xlsx"):
-            return pd.read_excel(dataset_file)
-        else:
-            raise ValueError(
-                "Unsupported file format. Please provide a CSV or Excel file."
-            )
-    except FileNotFoundError as e:
-        print(f"Error: File '{dataset_file}' not found. {e}")
-        return None
-
-
+def readfile(file_path):
+    data = pd.read_csv(file_path)
+    return data
+   
 # Function to generate summary statistics and create a data visualization
-def generate_summary_and_visualization(df, column_name, output_image, output_file):
-    if df is not None:
-        summary_stats = df.describe()
-        plt.figure(figsize=(8, 6))
-        sns.histplot(df[column_name], kde=True)
-        plt.title(f"{column_name} Distribution")
-        plt.xlabel(column_name)
-        plt.ylabel("Frequency")
-        plt.savefig(output_image, bbox_inches="tight")
-        plt.close()
+def generate_summary_and_visualization(data, output_summary_report, histogram_image_path):
+    # Generate summary statistics for numeric columns
+    summary_stats = data.describe()
 
-        with open(output_file, "w", encoding="utf-8") as markdown_file:
-            markdown_file.write(summary_stats.to_markdown())
-            markdown_file.write(f"\n![Histogram]({output_image})\n")
-        print(f"Summary report saved to {output_file}")
-    else:
-        print("Error: DataFrame is None. Make sure to read the dataset first.")
+    # Create a histogram visualization for the 'Age' column
+    plt.figure(figsize=(8, 6))
+    sns.histplot(data['Age'], kde=True, color='skyblue')
+    plt.title('Age Distribution')
+    plt.xlabel('Age')
+    plt.ylabel('Frequency')
+    plt.savefig(histogram_image_path, bbox_inches='tight')
+    plt.close()
 
+    # Save the summary report in Markdown format
+    with open(output_summary_report, 'w', encoding='utf-8') as markdown_file:
+        markdown_file.write(summary_stats.to_markdown())
+        markdown_file.write(f"\n![Histogram]({histogram_image_path})\n")
+    print(f"Summary report saved to {output_summary_report}")
 
 if __name__ == "__main__":
-    data_file = "bmi.csv"
-    output_summary_report = "summary_report.md"
-    histogram_image_path = "histogram.png"  # Path to save the histogram image
+    # Specify the input CSV file and output file paths
+    input_file_path = 'bmi.csv'  # Update with your dataset file path
+    output_summary_report = 'summary_report.md'
+    histogram_image_path = 'age_histogram.png'
 
     # Read the dataset
-    data = read_dataset(data_file)
+    data = readfile(input_file_path)
 
-    # Generate summary statistics and create a data visualization
-    generate_summary_and_visualization(
-        data, "Age", histogram_image_path, output_summary_report
-    )
+    # Generate summary statistics and create a histogram
+    generate_summary_and_visualization(data, output_summary_report, histogram_image_path)

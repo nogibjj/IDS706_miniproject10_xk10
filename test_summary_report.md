@@ -8,4 +8,4 @@
 | 50%   |  29      |   1.721     |  72.9    |  24.1324  |
 | 75%   |  40      |   1.751     |  83.3    |  27.2493  |
 | max   |  61      |   2.07      | 270      |  66.3013  |
-![Histogram](age_histogram.png)
+![Histogram](test_age_histogram.png)
