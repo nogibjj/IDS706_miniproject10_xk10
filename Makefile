@@ -11,4 +11,4 @@ format:
 lint:
 	pylint --disable=R,C,locally-disabled --ignore-patterns=test_.*?py *.py
 
-all: install lint format test 
+all: install lint format test
