@@ -1,6 +1,4 @@
-![Workflow Status](https://github.com/nogibjj/IDS706_miniproject2_xk10/actions/workflows/main.yml/badge.svg)
-
-
+![CI](https://github.com/nogibjj/IDS706_miniproject2_xk10/actions/workflows/cicd.yml/badge.svg)
 
 # Pandas Descriptive Statistics Script
 ## Purpose
