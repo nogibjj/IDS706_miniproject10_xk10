@@ -1,4 +1,4 @@
-![CI](https://github.com/nogibjj/IDS706_miniproject2_xk10/actions/workflows/cicd.yml/badge.svg)
+![CI](https://github.com/nogibjj/IDS706_miniproject2_xk10/actions/workflows/cicd.yml/badge.svg)(https://github.com/nogibjj/IDS706_miniproject2_xk10/actions/workflows/cicd.yml)
 
 # Pandas Descriptive Statistics Script
 ## Purpose
