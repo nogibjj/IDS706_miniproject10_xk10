@@ -17,7 +17,7 @@ This project aims to perform EDA on the 'bmi.csv' dataset from Kaggle (https://w
 * Reads dataset from a CSV file.
 * Generates summary statistics and a histogram for the 'Age' column.
 * Saves summary statistics and a histogram as Markdown and image files.
-4. test_main.py:
+5. test_main.py:
 * Tests the generate_summary_and_visualization function.
 * Loads a test dataset.
 * Calls the function to create a test summary report and histogram.
