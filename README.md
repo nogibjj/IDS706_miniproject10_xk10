@@ -1,46 +1,35 @@
-[![CI/CD Workflow](https://github.com/nogibjj/IDS706_miniproject2_xk10/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/IDS706_miniproject2_xk10/actions/workflows/cicd.yml)
+[![CI/CD Workflow](https://github.com/nogibjj/IDS706_miniproject10_xk10/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/IDS706_miniproject10_xk10/actions/workflows/cicd.yml)
 
-# Pandas Descriptive Statistics Script
-## Purpose
-This project aims to perform EDA on the 'bmi.csv' dataset from Kaggle (https://www.kaggle.com/datasets/rukenmissonnier/age-weight-height-bmi-analysis), which comprises 741 individual records. Here are the concise goals:
-1. Dataset loading: create a codespaces environment to automatically load the 'bmi.csv' dataset using Pandas.
-2. Descriptive statistics: generate basic descriptive statistics, including mean, median, standard deviation for the columns (age, height, weight, bmi).
-3. data visualization: create one example visualization for age distribution.
+# Miniproject10: Introduction to PySpark and Innovation in Energy and Public Health
+## Purpose:
+The purpose of this project is to leverage the powerful capabilities of PySpark for processing large datasets, a task essential in the field of data science and analytics. PySpark, being a distributed computing framework, is particularly well-suited for handling voluminous data efficiently. In this project, we focus on applying PySpark to analyze and manipulate a substantial dataset extracted from FiveThirtyEight's public repositories. The dataset in question pertains to birth records in the United States, spanning a decade from 1994 to 2003. This rich dataset offers a plethora of opportunities for insightful analysis and data-driven discoveries.
 
-## Preparation
-1. This project was generated from the previous miniproject IDS706-template, which includes a 'Makefile', 'requirements.txt', '.devcontainer', '.gitignore', 'GithubActions' and 'README'.
-2. The project incorporates an automated workflow managed through a Makefile, which efficiently handles various tasks. These tasks encompass installation (via "make install"), testing (via "make test"), code formatting (via "make format"), and code quality checks (via "make lint").
-<img width="821" alt="Screen Shot 2023-09-10 at 22 03 36" src="https://github.com/nogibjj/IDS706_miniproject2_xk10/assets/143849077/dd157fbd-8b4f-40cd-80ec-569aab7639b0">
-<img width="586" alt="Screen Shot 2023-09-10 at 22 07 11" src="https://github.com/nogibjj/IDS706_miniproject2_xk10/assets/143849077/0e307a77-0e22-4dcf-a0d8-1f4f7d04ecbe">
+A key component of this project is the utilization of Spark SQL, an integral part of the Apache Spark ecosystem, which allows for querying data in a highly efficient and scalable manner. By employing Spark SQL, we aim to delve into the dataset to extract meaningful patterns, trends, and statistics. This SQL-like interface seamlessly integrates with PySpark, providing a familiar yet powerful tool for data analysts and scientists.
 
-3. main.py:
-* Reads dataset from a CSV file.
-* Generates summary statistics and a histogram for the 'Age' column.
-* Saves summary statistics and a histogram as Markdown and image files.
-4. test_main.py:
-* Tests the generate_summary_and_visualization function.
-* Loads a test dataset.
-* Calls the function to create a test summary report and histogram.
+Furthermore, the project includes a vital aspect of data transformation, a necessary step in preparing the raw data for analysis. This transformation process involves cleaning the data, normalizing it, and implementing various manipulations to make the data more suitable for analysis. Such transformations are crucial in data science workflows to ensure the accuracy and reliability of the results.
 
-## Summary statistics
-The dataset contains 741 records with the following key statistics:
-Age: Average age is 31.6 years, ranging from 15 to 61 years.
-Height: Average height is 1.709 meters, ranging from 1.46 to 2.07 meters.
-Weight: Average weight is 78.4 kilograms, ranging from 25.9 to 270 kilograms.
-BMI: Average BMI is 26.4, ranging from 12.15 to 66.30.
-These statistics summarize the dataset's age, height, weight, and BMI attributes.
-<img width="790" alt="Screen Shot 2023-09-10 at 22 16 09" src="https://github.com/nogibjj/IDS706_miniproject2_xk10/assets/143849077/83694057-7ccc-436f-b3c9-eae5a246df4b">
-
-## Data visualization:
-For this project, I created a histogram for age distribution.
-![age_histogram](https://github.com/nogibjj/IDS706_miniproject2_xk10/assets/143849077/fac23e66-55f3-49cd-b3f5-fbe6b802b1b3)
+## Steps:
+1. Update requirements.txt:
+Add PySpark and any other necessary dependencies to your requirements.txt. 
+2. Organize the my.lib directory:
+into meaningful sub-modules for clarity and maintainability. For instance, separate data extraction, transformation, loading, and querying functionalities into distinct files.
+Extract.py: Handles downloading a dataset from a URL using the requests library. Implement error handling and possibly caching.
+Transform.py: Includes functions to clean and filter the dataset. This may involve normalizing data, handling missing values, and other transformations relevant to your dataset.
+Load.py: Responsible for loading the transformed data into an SQLite database. This will involve SQL operations, possibly using a library like SQLite3 or SQLAlchemy.
+Query.py: Contains functions to perform SQL queries on the data, including retrieval, updates, and creation of new records.
+Edit main.py to Call the Functions:
+3. Import and sequentially call the functions from the my.lib modules. 
+The main function should flow logically, from extracting data, transforming it, loading it into the database, and then querying or updating the database.
+4. Add Test Cases in test_main.py:
+Write unit tests for each function in the main.py. Ensure that each function behaves as expected under various conditions.
+Mock external dependencies like the network or database to make your tests more reliable and faster.
+5. Create an Output File:
+Using a markdown file (pyspark_output.md) for logging outputs of different operations. Ensure that your functions in main.py and my.lib write relevant information to this file for auditing and debugging purposes.
+## Check format and test:
+Use make install, make format, make lint, make test command.
 
 
-## Summary report：please see 'summary_report.md'
-I used pandas' describe() function to compute statistics (count, mean, std, min, 25%, 50%, 75%, max) for all numeric columns. Then employed seaborn to create create a histogram with a KDE for the 'Age' column, visualizing its distribution. After generating statistics, I saved them in Markdown format using to_markdown(). 
+<img width="1149" alt="Screen Shot 2023-11-14 at 01 40 42" src="https://github.com/nogibjj/IDS706_miniproject10_xk10/assets/143849077/0a1a79f3-8a81-491c-9c93-b34542417c2b">
 
 
-
-
-
-
+The results can be found in pyspark_output.md
